@@ -1,4 +1,9 @@
 ﻿#pragma once
+
+#ifndef __AVR__
+#error "uWire supports AVR architecture only"
+#endif
+
 #include <Arduino.h>
 
 // Таймаут ожидания аппаратного TWI, мкс. 0 отключает таймаут.

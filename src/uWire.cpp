@@ -145,6 +145,8 @@ size_t uWireClass::write(const uint8_t* data, size_t len) {
 }
 
 bool uWireClass::_wait(uint8_t mask, bool state) {
+    if (!!(TWCR & mask) == state) return true;
+
 #if MICROWIRE_TIMEOUT > 0
     uint32_t started = micros();
 #endif
